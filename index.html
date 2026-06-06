@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quản Lý Phiếu Mượn Sách</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Quản Lý Phiếu Mượn Sách</h1>
+
+      <!-- THỐNG KÊ -->
+      <div class="summary-box">
+        Tổng số phiếu mượn:
+        <strong id="totalBorrows">0</strong>
+
+        | Đang mượn:
+        <strong id="borrowingCount">0</strong>
+
+        | Đã trả:
+        <strong id="returnedCount">0</strong>
+      </div>
+
+      <!-- NÚT THÊM -->
+      <div class="action-bar">
+        <button id="addBorrowBtn" class="add-btn">THÊM PHIẾU MƯỢN</button>
+      </div>
+
+      <!-- BẢNG DỮ LIỆU -->
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+
+              <th>MÃ PHIẾU</th>
+
+              <th>NGƯỜI MƯỢN</th>
+
+              <th>MÃ SÁCH</th>
+
+              <th>THỂ LOẠI</th>
+
+              <th>NGÀY MƯỢN</th>
+
+              <th>HẠN TRẢ</th>
+
+              <th>TRẠNG THÁI</th>
+
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+
+          <tbody id="borrowTableBody">
+            <tr>
+              <td>1</td>
+              <td>PM-2048</td>
+              <td>Nguyễn Văn An</td>
+              <td>BK10234</td>
+              <td>CNTT</td>
+              <td>2025-05-01</td>
+              <td>2025-05-20</td>
+              <td>Đang mượn</td>
+              <td>
+                <button class="edit-btn">Sửa</button>
+                <button class="delete-btn">Xóa</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>2</td>
+              <td>PM-3056</td>
+              <td>Trần Thị Bình</td>
+              <td>BK54321</td>
+              <td>Ngoại ngữ</td>
+              <td>2025-05-10</td>
+              <td>2025-05-30</td>
+              <td>Đã trả</td>
+
+              <td>
+                <button class="edit-btn">Sửa</button>
+                <button class="delete-btn">Xóa</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+              <td>PM-4123</td>
+              <td>Lê Văn Cường</td>
+              <td>BK67890</td>
+              <td>Kinh tế</td>
+              <td>2025-05-15</td>
+              <td>2025-06-05</td>
+              <td>Đang mượn</td>
+              <td>
+                <button class="edit-btn">Sửa</button>
+                <button class="delete-btn">Xóa</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>4</td>
+              <td>PM-5678</td>
+              <td>Phạm Thị Dung</td>
+              <td>BK11111</td>
+              <td>Kỹ năng</td>
+              <td>2025-05-20</td>
+              <td>2025-06-10</td>
+              <td>Đã trả</td>
+              <td>
+                <button class="edit-btn">Sửa</button>
+                <button class="delete-btn">Xóa</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>5</td>
+              <td>PM-6789</td>
+              <td>Hoàng Minh Đức</td>
+              <td>BK22222</td>
+              <td>CNTT</td>
+              <td>2025-05-25</td>
+              <td>2025-06-15</td>
+              <td>Đang mượn</td>
+              <td>
+                <button class="edit-btn">Sửa</button>
+                <button class="delete-btn">Xóa</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- MODAL -->
+
+    <div id="borrowModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+
+        <h2 class="form-title">THÊM / SỬA PHIẾU MƯỢN</h2>
+
+        <form id="borrowForm">
+          <!-- MÃ PHIẾU -->
+
+          <div class="form-group">
+            <label>MÃ PHIẾU MƯỢN *</label>
+
+            <input type="text" id="borrowId" placeholder="PM-2048" />
+
+            <div class="error" id="borrowIdError"></div>
+          </div>
+
+          <!-- NGƯỜI MƯỢN -->
+
+          <div class="form-group">
+            <label>HỌ TÊN NGƯỜI MƯỢN *</label>
+
+            <input type="text" id="borrowerName" />
+
+            <div class="error" id="borrowerNameError"></div>
+          </div>
+
+          <!-- MÃ SÁCH -->
+
+          <div class="form-group">
+            <label>MÃ SÁCH *</label>
+
+            <input type="text" id="bookId" placeholder="BK10234" />
+
+            <div class="error" id="bookIdError"></div>
+          </div>
+
+          <!-- THỂ LOẠI -->
+
+          <div class="form-group">
+            <label>THỂ LOẠI *</label>
+
+            <select id="category">
+              <option value="">Chọn thể loại</option>
+
+              <option value="CNTT">CNTT</option>
+
+              <option value="Kinh tế">Kinh tế</option>
+
+              <option value="Ngoại ngữ">Ngoại ngữ</option>
+
+              <option value="Kỹ năng">Kỹ năng</option>
+            </select>
+
+            <div class="error" id="categoryError"></div>
+          </div>
+
+          <!-- NGÀY MƯỢN -->
+
+          <div class="form-group">
+            <label>NGÀY MƯỢN *</label>
+
+            <input type="date" id="borrowDate" />
+
+            <div class="error" id="borrowDateError"></div>
+          </div>
+
+          <!-- HẠN TRẢ -->
+
+          <div class="form-group">
+            <label>HẠN TRẢ *</label>
+
+            <input type="date" id="dueDate" />
+
+            <div class="error" id="dueDateError"></div>
+          </div>
+
+          <!-- ĐIỆN THOẠI -->
+
+          <div class="form-group">
+            <label>SỐ ĐIỆN THOẠI *</label>
+
+            <input type="text" id="phone" placeholder="09xxxxxxxx" />
+
+            <div class="error" id="phoneError"></div>
+          </div>
+
+          <!-- EMAIL -->
+
+          <div class="form-group">
+            <label>EMAIL *</label>
+
+            <input type="email" id="email" placeholder="abc@library.vn" />
+
+            <div class="error" id="emailError"></div>
+          </div>
+
+          <!-- TRẠNG THÁI -->
+
+          <div class="form-group">
+            <label>TRẠNG THÁI *</label>
+
+            <select id="status">
+              <option value="">Chọn trạng thái</option>
+
+              <option value="Đang mượn">Đang mượn</option>
+
+              <option value="Đã trả">Đã trả</option>
+            </select>
+
+            <div class="error" id="statusError"></div>
+          </div>
+
+          <!-- GHI CHÚ -->
+
+          <div class="form-group">
+            <label>GHI CHÚ</label>
+
+            <textarea id="note" rows="4"></textarea>
+
+            <div class="error" id="noteError"></div>
+          </div>
+
+          <!-- NÚT -->
+
+          <div class="button-group">
+            <button type="submit" class="save-btn">LƯU PHIẾU MƯỢN</button>
+
+            <button type="button" id="cancelBtn" class="cancel-btn">HỦY</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

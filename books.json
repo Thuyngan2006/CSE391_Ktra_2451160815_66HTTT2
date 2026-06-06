@@ -1,0 +1,62 @@
+[
+  {
+    "borrowId": "PM-2048",
+    "borrowerName": "Nguyễn Văn An",
+    "bookId": "BK10234",
+    "category": "CNTT",
+    "borrowDate": "2025-05-01",
+    "dueDate": "2025-05-20",
+    "phone": "0987654321",
+    "email": "an@library.vn",
+    "status": "Đang mượn",
+    "note": "Mượn để học lập trình web."
+  },
+  {
+    "borrowId": "PM-3056",
+    "borrowerName": "Trần Thị Bình",
+    "bookId": "BK54321",
+    "category": "Ngoại ngữ",
+    "borrowDate": "2025-05-10",
+    "dueDate": "2025-05-30",
+    "phone": "0912345678",
+    "email": "binh@library.vn",
+    "status": "Đã trả",
+    "note": "Đã trả đúng hạn."
+  },
+  {
+    "borrowId": "PM-4123",
+    "borrowerName": "Lê Văn Cường",
+    "bookId": "BK67890",
+    "category": "Kinh tế",
+    "borrowDate": "2025-05-15",
+    "dueDate": "2025-06-05",
+    "phone": "0376543210",
+    "email": "cuong@library.vn",
+    "status": "Đang mượn",
+    "note": "Mượn phục vụ nghiên cứu môn học."
+  },
+  {
+    "borrowId": "PM-5678",
+    "borrowerName": "Phạm Thị Dung",
+    "bookId": "BK11111",
+    "category": "Kỹ năng",
+    "borrowDate": "2025-05-20",
+    "dueDate": "2025-06-10",
+    "phone": "0856789123",
+    "email": "dung@library.vn",
+    "status": "Đã trả",
+    "note": ""
+  },
+  {
+    "borrowId": "PM-6789",
+    "borrowerName": "Hoàng Minh Đức",
+    "bookId": "BK22222",
+    "category": "CNTT",
+    "borrowDate": "2025-05-25",
+    "dueDate": "2025-06-15",
+    "phone": "0398765432",
+    "email": "duc@library.vn",
+    "status": "Đang mượn",
+    "note": "Mượn sách chuẩn bị cho kỳ thi cuối kỳ."
+  }
+]
